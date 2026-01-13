@@ -1,0 +1,9 @@
+data "local_file" "example" {
+  filename = "${path.module}/demo.txt"
+}
+
+output "name" {
+  value = data.local_file.example.content
+ }
+
+ 
