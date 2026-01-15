@@ -23,7 +23,6 @@ resource "aws_instance" "web_server" {
   
   vpc_security_group_ids = [aws_security_group.dev-sec-group.id]
 
-  depends_on = [aws_security_group.dev-sec-group]
 
 }
 
