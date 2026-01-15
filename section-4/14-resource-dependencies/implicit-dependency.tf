@@ -20,9 +20,21 @@ resource "aws_instance" "web_server" {
   tags = {
     Name = "WebServerInstance"
   }
+  
+  vpc_security_group_ids = [aws_security_group.dev-sec-group.id]
 
-  lifecycle {
-    create_before_destroy = true
-    ignore_changes        = [tags]
+  depends_on = [aws_security_group.dev-sec-group]
+
+}
+
+resource "aws_security_group" "dev-sec-group" {
+  name        = "dev-security-group"
+  description = "Security group for development environment"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
