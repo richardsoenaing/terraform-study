@@ -1,0 +1,42 @@
+erraform Associate Exam မှာရော၊ စင်ကာပူက IT အလုပ်ခွင်မှာပါ Richard နေ့တိုင်းနီးပါး သုံးရမယ့် Commands တွေကို Category လိုက် ခွဲခြားပေးလိုက်ပါတယ်။ ဒါတွေကို သိထားရင် အလုပ်မှာ လက်မတင်ဘဲ လုပ်နိုင်မှာပါ။
+
+၁။ The Main Workflow (Core Commands)
+ဒါတွေက Infrastructure တစ်ခု တည်ဆောက်တဲ့အခါ အစဉ်လိုက် သုံးရတဲ့ Command တွေပါ။
+
+terraform init: အလုပ်တစ်ခု စတိုင်း အရင်ဆုံး ရိုက်ရပါတယ်။ Providers တွေနဲ့ Backend (S3) configuration တွေကို Download ဆွဲပြီး အဆင်သင့်ဖြစ်အောင် လုပ်ပေးတာပါ။
+
+terraform plan: ကိုယ်ရေးထားတဲ့ Code ကြောင့် Cloud ပေါ်မှာ ဘာတွေ ပြောင်းလဲသွားမလဲဆိုတာကို Preview ကြည့်တာပါ။ (Exam Tip: Dry-run လို့လည်း ခေါ်ပါတယ်)
+
+terraform apply: အပြောင်းအလဲတွေကို တကယ် လုပ်ဆောင်တာပါ။ terraform apply -auto-approve လို့ သုံးရင် "yes" လို့ ပြန်ရိုက်စရာမလိုဘဲ တန်းလုပ်သွားပါလိမ့်မယ်။
+
+terraform destroy: ဆောက်ထားသမျှ အကုန်လုံးကို ပြန်ဖျက်တာပါ။ (Production မှာ သတိထား သုံးရမယ့် Command ပါ)။
+
+၂။ Code Quality & Validation
+Code တွေ သပ်ရပ်ဖို့နဲ့ အမှားနည်းဖို့အတွက် သုံးပါတယ်။
+
+terraform fmt: Code format ကို Standard ကျအောင် အလိုအလျောက် ပြန်စီပေးတာပါ။ (Space တွေ၊ alignment တွေ ညှိပေးတယ်)။
+
+terraform validate: Syntax မှားနေသလား၊ variables တွေ ကြေညာဖို့ ကျန်ခဲ့သလားဆိုတာကို စစ်ပေးတာပါ။ (Cloud provider ဆီကိုတော့ မစစ်ဘူး၊ Code ပဲ စစ်တာပါ)။
+
+၃။ State Management (Section 4 & 7 မှာ သင်ခဲ့တာတွေ)
+State file ကို ကိုင်တွယ်ဖို့ သုံးပါတယ်။
+
+terraform state list: လက်ရှိ Terraform က manage လုပ်နေတဲ့ resource တွေရဲ့ list ကို ထုတ်ကြည့်တာပါ။
+
+terraform state show <address>: Resource တစ်ခုချင်းစီရဲ့ IP တွေ၊ ID တွေ အသေးစိတ် ကြည့်ချင်ရင် သုံးပါတယ်။
+
+terraform state rm <address>: Resource ကို Cloud ပေါ်မှာ မဖျက်ဘဲ Terraform State ထဲကနေပဲ ဖယ်ထုတ်ချင်ရင် သုံးပါတယ်။
+
+terraform import <address> <id>: Cloud ပေါ်မှာ manual ဆောက်ထားတဲ့ resource ကို Terraform code ထဲ ရောက်လာအောင် ဆွဲသွင်းတာပါ။
+
+၄။ Advanced Operations
+terraform output: Output variables တွေရဲ့ တန်ဖိုးကိုပဲ သီးသန့် ထုတ်ကြည့်ချင်ရင် သုံးပါတယ်။
+
+terraform workspace: Environment ခွဲသုံးချင်ရင် သုံးပါတယ် (ဥပမာ - terraform workspace new dev)။
+
+terraform get: Modules တွေကို update လုပ်ချင်ရင် သုံးပါတယ်။
+
+terraform console: Terraform ရဲ့ functions တွေ၊ variables တွေကို လက်တွေ့စမ်းသပ်ကြည့်ဖို့ Command-line tool လေးပါ။
+
+Richard အတွက် Quick Pro-tip:
+စင်ကာပူက ကုမ္ပဏီအများစုမှာ CI/CD Pipeline တွေ သုံးကြပါတယ်။ အဲဒီအခါမှာ terraform plan -out=tfplan ဆိုပြီး plan ကို file အနေနဲ့ သိမ်းပြီး terraform apply tfplan ဆိုပြီး ပြန်သုံးတာက Best Practice ဖြစ်ပါတယ်။
