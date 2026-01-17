@@ -4,3 +4,4 @@ aws-accesskey.txt
 .terraform/
 .terraform.lock.hcl
 key.txt
+**.log
