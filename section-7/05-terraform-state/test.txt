@@ -1,0 +1,71 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.3",
+  "serial": 1,
+  "lineage": "b645a59b-af7e-c0e5-187e-5eb757b04c81",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_iam_user",
+      "name": "dev",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::685178338352:user/richard-terraform-2026-dev-user",
+            "force_destroy": false,
+            "id": "richard-terraform-2026-dev-user",
+            "name": "richard-terraform-2026-dev-user",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AIDAZ7B6PXQYJHLCKYLXB"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "dev_sg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group/sg-07593c74055f2dbf5",
+            "description": "Security group for dev environment managed by Terraform",
+            "egress": [],
+            "id": "sg-07593c74055f2dbf5",
+            "ingress": [],
+            "name": "richard-terraform-2026-dev-sg",
+            "name_prefix": "",
+            "owner_id": "685178338352",
+            "region": "us-east-1",
+            "revoke_rules_on_delete": false,
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null,
+            "vpc_id": "vpc-02832ddd908302390"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sg-07593c74055f2dbf5",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
+

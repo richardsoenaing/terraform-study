@@ -1,0 +1,203 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.3",
+  "serial": 2,
+  "lineage": "b645a59b-af7e-c0e5-187e-5eb757b04c81",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_iam_user",
+      "name": "dev",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::685178338352:user/richard-terraform-2026-dev-user",
+            "force_destroy": false,
+            "id": "richard-terraform-2026-dev-user",
+            "name": "richard-terraform-2026-dev-user",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AIDAZ7B6PXQYJHLCKYLXB"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "dev_sg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group/sg-07593c74055f2dbf5",
+            "description": "Security group for dev environment managed by Terraform",
+            "egress": [],
+            "id": "sg-07593c74055f2dbf5",
+            "ingress": [],
+            "name": "richard-terraform-2026-dev-sg",
+            "name_prefix": "",
+            "owner_id": "685178338352",
+            "region": "us-east-1",
+            "revoke_rules_on_delete": false,
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null,
+            "vpc_id": "vpc-02832ddd908302390"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sg-07593c74055f2dbf5",
+            "region": "us-east-1"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "name": "dev_sg_rule",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "http",
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group-rule/sgr-04d993ec1c70d0996",
+            "cidr_ipv4": "0.0.0.0/0",
+            "cidr_ipv6": null,
+            "description": null,
+            "from_port": 80,
+            "id": "sgr-04d993ec1c70d0996",
+            "ip_protocol": "tcp",
+            "prefix_list_id": null,
+            "referenced_security_group_id": null,
+            "region": "us-east-1",
+            "security_group_id": "sg-07593c74055f2dbf5",
+            "security_group_rule_id": "sgr-04d993ec1c70d0996",
+            "tags": null,
+            "tags_all": {},
+            "to_port": 80
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sgr-04d993ec1c70d0996",
+            "region": "us-east-1"
+          },
+          "dependencies": [
+            "aws_security_group.dev_sg"
+          ]
+        },
+        {
+          "index_key": "http-alt",
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group-rule/sgr-046fa989248a4c364",
+            "cidr_ipv4": "0.0.0.0/0",
+            "cidr_ipv6": null,
+            "description": null,
+            "from_port": 8080,
+            "id": "sgr-046fa989248a4c364",
+            "ip_protocol": "tcp",
+            "prefix_list_id": null,
+            "referenced_security_group_id": null,
+            "region": "us-east-1",
+            "security_group_id": "sg-07593c74055f2dbf5",
+            "security_group_rule_id": "sgr-046fa989248a4c364",
+            "tags": null,
+            "tags_all": {},
+            "to_port": 8080
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sgr-046fa989248a4c364",
+            "region": "us-east-1"
+          },
+          "dependencies": [
+            "aws_security_group.dev_sg"
+          ]
+        },
+        {
+          "index_key": "https",
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group-rule/sgr-0e1b4677762429a21",
+            "cidr_ipv4": "0.0.0.0/0",
+            "cidr_ipv6": null,
+            "description": null,
+            "from_port": 443,
+            "id": "sgr-0e1b4677762429a21",
+            "ip_protocol": "tcp",
+            "prefix_list_id": null,
+            "referenced_security_group_id": null,
+            "region": "us-east-1",
+            "security_group_id": "sg-07593c74055f2dbf5",
+            "security_group_rule_id": "sgr-0e1b4677762429a21",
+            "tags": null,
+            "tags_all": {},
+            "to_port": 443
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sgr-0e1b4677762429a21",
+            "region": "us-east-1"
+          },
+          "dependencies": [
+            "aws_security_group.dev_sg"
+          ]
+        },
+        {
+          "index_key": "ssh",
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:685178338352:security-group-rule/sgr-04323c359b817927b",
+            "cidr_ipv4": "0.0.0.0/0",
+            "cidr_ipv6": null,
+            "description": null,
+            "from_port": 22,
+            "id": "sgr-04323c359b817927b",
+            "ip_protocol": "tcp",
+            "prefix_list_id": null,
+            "referenced_security_group_id": null,
+            "region": "us-east-1",
+            "security_group_id": "sg-07593c74055f2dbf5",
+            "security_group_rule_id": "sgr-04323c359b817927b",
+            "tags": null,
+            "tags_all": {},
+            "to_port": 22
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "685178338352",
+            "id": "sgr-04323c359b817927b",
+            "region": "us-east-1"
+          },
+          "dependencies": [
+            "aws_security_group.dev_sg"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
+
