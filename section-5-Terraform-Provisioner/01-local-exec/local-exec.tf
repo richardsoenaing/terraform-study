@@ -11,6 +11,12 @@ resource "aws_instance" "example" {
   }
 
   provisioner "local-exec" {
+    when = create
     command = "echo 'Instance ${self.id} has been created with IP ${self.public_ip}' >> instance_info.txt"
+  }
+
+  provisioner "local-exec" {
+    when = destroy
+    command = "echo 'Instance ${self.id} is being destroyed' >> instance_info.txt"
   }
 }
