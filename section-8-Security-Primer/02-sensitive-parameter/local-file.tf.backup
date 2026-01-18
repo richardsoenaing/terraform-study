@@ -1,0 +1,14 @@
+variable "password" {
+  default = "P@ssw0rd1234!"
+  sensitive = true
+}
+
+resource "local_file" "example" {
+  content = var.password
+  filename = "${path.module}/sensitive_data.txt"
+}
+
+output "password_output" {
+  value     = local_file.example.content
+  sensitive = true
+}
