@@ -18,5 +18,6 @@ resource "aws_instance" "example" {
   provisioner "local-exec" {
     when = destroy
     command = "echo 'Instance ${self.id} is being destroyed' >> instance_info.txt"
+    on_failure = continue
   }
 }
